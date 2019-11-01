@@ -1,0 +1,13 @@
+{
+  "SubFunction": {
+    "MonitorModePermission": 123,
+    "EdirorModePermission": 123,
+    "TreeMenuPermission": 123,
+    "TimeBarPermission": 7,
+    "BottomBarPermission ": 1,
+    "AlarmSystemPermission": 1,
+    "CameraModulePermission": 123,
+    "ReportModulePermission": 123,
+    "LoginMenuPermission": 123
+  }
+}

@@ -8,6 +8,15 @@ const app = express()
 const path = require('path');
 const hbs = require('hbs');
 
+const Pool = require('pg').Pool
+const pool = new Pool({
+  user: 'me',
+  host: 'localhost',
+  database: 'api',
+  password: 'password',
+  port: 5432,
+})
+
 // const middlewares = require('./auth/middlewares');
 // const auth = require('./auth');
 // const notes = require('./api/notes');
@@ -50,29 +59,35 @@ app.use('/assets',express.static(__dirname + '/public'));
 
 //apache under /api
 app.get('/', (req, res) => {
-    res.send('Success! The product.nadi3docms.com server block is working!');
+    res.send('http://127.0.0.1:3000/companyId/projectId/Module/bottombar/attribute+http://127.0.0.1:3000/companyId/projectId/Module/bottombar/device+http://127.0.0.1:3000/companyId/projectId/Module/bottombar/sensor+http://127.0.0.1:3000/companyId/projectId/Module/bottombar/system');
 })
 
 app.get('/colddata', (req, res) => {
-    fs.readFile('./data/SensorColdData 2.json', (err, json) => {
+    fs.readFile('./data/colddata/SensorColdData 2.json', (err, json) => {
         let obj = JSON.parse(json);
         res.json(obj);
     })
 })
 
 app.get('/hotdata', (req, res) => {
-    fs.readFile('./data/SensorHotData.json', (err, json) => {
+    fs.readFile('./data/hotdata/SensorHotData.json', (err, json) => {
         let obj = JSON.parse(json);
         res.json(obj);
     })
 })
 
-app.get('/account/info', (req, res) => {
-    fs.readFile('./data/AccountInfoData.json', (err, json) => {
-        let obj = JSON.parse(json);
-        res.json(obj);
-    });
-});
+const token = "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIn0.n9zXFaD564WqPoPyjWH7vC74r6Kwyyk3-SQaF_VqvincofN4L4Lrl6DIcYy7lc-xuuLMr-V8v7DXwFIKHliopFPkwgf5DemB.dc_l0tfyIUjsUJsmhLdqJw.m7ZXXk1Gzw8ny9ov2XIMmCwqiP-VEK27FWpRBRJgvGkB2UiPDnGFT1TkBoEVHkvR-b09grq9_fHAIsuU6hoLDNM0yJiA4ZjdfuByxipOcr3oLfbQiVFO1zxTppVmW0DGCOxY1jRiD3EEx1jFH80PjQHtojIyJ_u3hnvGffkw3yH6GMXkZaztgQzVxr9y3DJb.anzTkQV28vC4wr3aW4qKWE02ohQCcAX2qzBbKIulH1s"
+
+app.post('/login', (req, res) => {
+  if(req.header('US')=='Siemens' && req.header('PS')=='Snadi123') {
+    fs.readFile('./data/login/AccountInfoData.json', (err, json) => {
+      let obj = JSON.parse(json);
+      res.json(obj);
+    })
+  } else {
+    res.json("login failed")
+  }
+})
 
 
 app.get('/:companyId/:projectId', function(req, res) {
@@ -87,6 +102,43 @@ app.get('/:companyId/:projectId', function(req, res) {
         res.json(obj);
     });
 });
+
+//http://127.0.0.1:3000/companyId/projectId/projectinfo
+app.post('/:companyId/:projectId/projectinfo',(req, res) => {
+  if(req.header('token')) {
+    fs.readFile('./data/projectinfo/ProjectInfo.json', (err, json) => {
+      let obj = JSON.parse(json);
+      res.json(obj);
+    })
+  } else {
+    res.json("token failed")
+  }
+})
+
+//http://127.0.0.1:3000/companyId/projectId/mainmodule
+app.post('/:companyId/:projectId/mainmodule',(req, res) => {
+  if(req.header('token')) {
+    fs.readFile('./data/mainmodule/MainModule.json', (err, json) => {
+      let obj = JSON.parse(json);
+      res.json(obj);
+    })
+  } else {
+    res.json("token failed")
+  }
+})
+
+//http://127.0.0.1:3000/companyId/projectId/subfunction
+app.post('/:companyId/:projectId/subfunction',(req, res) => {
+  if(req.header('token')) {
+    fs.readFile('./data/subfunction/SubFunction.json', (err, json) => {
+      let obj = JSON.parse(json);
+      res.json(obj);
+    })
+  } else {
+    res.json("token failed")
+  }
+})
+
 
 //--------------------buttombar_module--------------------------
 //http://127.0.0.1:3000/companyId/projectId/Module/bottombar/attribute

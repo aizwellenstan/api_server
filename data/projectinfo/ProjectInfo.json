@@ -1,0 +1,132 @@
+{
+  "ProjectInfo": {
+    "SceneInfo": [
+      {
+        "Title": "SiemensBuilding",
+        "Language": "EN",
+        "Content": [
+          {
+            "Key": "Project Detail",
+            "Language": "EN",
+            "name": "Project Detail",
+            "Value": "OCMS-ATT-001"
+          },
+          {
+            "Key": "Industry",
+            "Language": "EN",
+            "name": "Industry",
+            "Value": "Complex"
+          },
+          {
+            "Key": "Type",
+            "Language": "EN",
+            "name": "Type",
+            "Value": "Hybird"
+          },
+          {
+            "Key": "Location",
+            "Language": "EN",
+            "name": "Location",
+            "Value": "Earth"
+          },
+          {
+            "Key": "Deployed",
+            "Language": "EN",
+            "name": "Deployed",
+            "Value": "2019/06"
+          },
+          {
+            "Key": "Description",
+            "Language": "EN",
+            "name": "Description",
+            "Value": "A content management system manages the creation and modification of didgital content. It typically supports multiple users in a collaborative environment."
+          }
+        ]
+      },
+      {
+        "Title": "ServerBuilding",
+        "Language": "EN",
+        "Content": [
+          {
+            "Key": "Project Detail",
+            "Language": "EN",
+            "name": "Project Detail",
+            "Value": "OCMS-ATT-002"
+          },
+          {
+            "Key": "Industry",
+            "Language": "EN",
+            "name": "Industry",
+            "Value": "Complex"
+          },
+          {
+            "Key": "Type",
+            "Language": "EN",
+            "name": "Type",
+            "Value": "Hybird"
+          },
+          {
+            "Key": "Location",
+            "Language": "EN",
+            "name": "Location",
+            "Value": "Earth"
+          },
+          {
+            "Key": "Deployed",
+            "Language": "EN",
+            "name": "Deployed",
+            "Value": "2019/07"
+          },
+          {
+            "Key": "Description",
+            "Language": "EN",
+            "name": "Description",
+            "Value": "A content management system manages the creation and modification of didgital content. It typically supports multiple users in a collaborative environment."
+          }
+        ]
+      },
+      {
+        "Title": "PorisBuilding",
+        "Language": "EN",
+        "Content": [
+          {
+            "Key": "Project Detail",
+            "Language": "EN",
+            "name": "Project Detail",
+            "Value": "OCMS-ATT-003"
+          },
+          {
+            "Key": "Industry",
+            "Language": "EN",
+            "name": "Industry",
+            "Value": "Complex"
+          },
+          {
+            "Key": "Type",
+            "Language": "EN",
+            "name": "Type",
+            "Value": "Hybird"
+          },
+          {
+            "Key": "Location",
+            "Language": "EN",
+            "name": "Location",
+            "Value": "Earth"
+          },
+          {
+            "Key": "Deployed",
+            "Language": "EN",
+            "name": "Deployed",
+            "Value": "2019/08"
+          },
+          {
+            "Key": "Description",
+            "Language": "EN",
+            "name": "Description",
+            "Value": "A content management system manages the creation and modification of didgital content. It typically supports multiple users in a collaborative environment."
+          }
+        ]
+      }
+    ]
+  }
+}

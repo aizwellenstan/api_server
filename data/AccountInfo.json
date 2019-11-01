@@ -1,0 +1,33 @@
+{
+  "AccountInfo": {
+    "CompanyId": "NewKinpoGroup",
+    "ProductId": "NADI_3DOCMS",
+    "ProjectId": "NewKinpoGroup_Factory_001",
+    "AccountId": "NewKinpo",
+    "Password": "NewKinpo123",
+    "Description": "NewKinpo",
+    "Group": "Manager",
+    "LicencesId": "SC-ZHCZ-7692-PQ79-JV2W-CPCK",
+    "ExpiryDate": "20191231",
+    "UserInfo": [
+      {
+        "Key": "Address",
+        "Language": "EN",
+        "Value": "asdsadsadsadsa"
+      },
+      {
+        "Key": "PhoneNumber",
+        "Language": "EN",
+        "Value": "0988765431"
+      },
+      {
+        "Key": "e-mail",
+        "Language": "EN",
+        "Value": "NewKinpo@gmail.com"
+      }
+    ],
+    "message": "Loing Success",
+    "code": "200",
+    "token": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIn0.n9zXFaD564WqPoPyjWH7vC74r6Kwyyk3-SQaF_VqvincofN4L4Lrl6DIcYy7lc-xuuLMr-V8v7DXwFIKHliopFPkwgf5DemB.dc_l0tfyIUjsUJsmhLdqJw.m7ZXXk1Gzw8ny9ov2XIMmCwqiP-VEK27FWpRBRJgvGkB2UiPDnGFT1TkBoEVHkvR-b09grq9_fHAIsuU6hoLDNM0yJiA4ZjdfuByxipOcr3oLfbQiVFO1zxTppVmW0DGCOxY1jRiD3EEx1jFH80PjQHtojIyJ_u3hnvGffkw3yH6GMXkZaztgQzVxr9y3DJb.anzTkQV28vC4wr3aW4qKWE02ohQCcAX2qzBbKIulH1s"
+  }
+}
