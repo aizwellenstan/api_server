@@ -1,0 +1,7 @@
+//Login
+URL https://product.nadi3docms.com/api/login
+Method post
+
+header 
+'US' = 'Siemens'
+'PS' = 'Snadi123'
