@@ -4,4 +4,35 @@ Method post
 
 header 
 'US' = 'Siemens'
-'PS' = 'Snadi123'
+'PS' = 'Snadi123;'
+
+----------------------------------------------------
+
+//Project info
+URL https://product.nadi3docms.com/api/:companyId/:projectId/projectinfo
+URL example https://product.nadi3docms.com/api/companyId/projectId/projectinfo
+Method get
+
+header 
+'token' = token from /login
+
+
+----------------------------------------------------
+
+//Main Module
+URL https://product.nadi3docms.com/api/:companyId/:projectId/mainmodule
+URL example https://product.nadi3docms.com/api/companyId/projectId/mainmodule
+Method get
+
+header 
+'token' = token from /login
+
+----------------------------------------------------
+
+//Sub Function
+URL https://product.nadi3docms.com/api/:companyId/:projectId/subfunction
+URL example https://product.nadi3docms.com/api/companyId/projectId/subfunction
+Method get
+
+header 
+'token' = token from /login

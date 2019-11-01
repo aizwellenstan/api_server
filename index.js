@@ -90,7 +90,7 @@ app.post('/login', (req, res) => {
 })
 
 
-app.get('/:companyId/:projectId', function(req, res) {
+app.get('/:companyId/:productId/:projectId', function(req, res) {
     var data = {
         "company": {
             "companyId": req.params.companyId,
@@ -103,8 +103,8 @@ app.get('/:companyId/:projectId', function(req, res) {
     });
 });
 
-//http://127.0.0.1:3000/companyId/projectId/projectinfo
-app.get('/:companyId/:projectId/projectinfo',(req, res) => {
+//http://127.0.0.1:3000/companyId/productId/projectId/projectinfo
+app.get('/:companyId/:productId/:projectId/projectinfo',(req, res) => {
   if(req.header('token')) {
     fs.readFile('./data/projectinfo/ProjectInfo.json', (err, json) => {
       let obj = JSON.parse(json);
@@ -115,8 +115,8 @@ app.get('/:companyId/:projectId/projectinfo',(req, res) => {
   }
 })
 
-//http://127.0.0.1:3000/companyId/projectId/mainmodule
-app.get('/:companyId/:projectId/mainmodule',(req, res) => {
+//http://127.0.0.1:3000/companyId/productId/projectId/mainmodule
+app.get('/:companyId/:productId/:projectId/mainmodule',(req, res) => {
   if(req.header('token')) {
     fs.readFile('./data/mainmodule/MainModule.json', (err, json) => {
       let obj = JSON.parse(json);
@@ -127,8 +127,8 @@ app.get('/:companyId/:projectId/mainmodule',(req, res) => {
   }
 })
 
-//http://127.0.0.1:3000/companyId/projectId/subfunction
-app.get('/:companyId/:projectId/subfunction',(req, res) => {
+//http://127.0.0.1:3000/companyId/productId/projectId/subfunction
+app.get('/:companyId/:productId/:projectId/subfunction',(req, res) => {
   if(req.header('token')) {
     fs.readFile('./data/subfunction/SubFunction.json', (err, json) => {
       let obj = JSON.parse(json);
@@ -141,11 +141,11 @@ app.get('/:companyId/:projectId/subfunction',(req, res) => {
 
 
 //--------------------buttombar_module--------------------------
-//http://127.0.0.1:3000/companyId/projectId/Module/bottombar/attribute
-//http://127.0.0.1:3000/companyId/projectId/Module/bottombar/device
-//http://127.0.0.1:3000/companyId/projectId/Module/bottombar/sensor
-//http://127.0.0.1:3000/companyId/projectId/Module/bottombar/system
-app.get('/:companyId/:projectId/Module/bottombar/:module',(req, res) => {
+//http://127.0.0.1:3000/companyId/productId/projectId/Module/bottombar/attribute
+//http://127.0.0.1:3000/companyId/productId/projectId/Module/bottombar/device
+//http://127.0.0.1:3000/companyId/productId/projectId/Module/bottombar/sensor
+//http://127.0.0.1:3000/companyId/productId/projectId/Module/bottombar/system
+app.get('/:companyId/:productId/:projectId/Module/bottombar/:module',(req, res) => {
   let barmodule = req.params.module
   let sql = "SELECT * FROM bottombar_" + barmodule
   let query = pool.query(sql, (err, results) => {
@@ -185,21 +185,21 @@ app.get('/:companyId/:projectId/Module/bottombar/:module',(req, res) => {
 //   })
 // })
 
-app.get('/:companyId/:projectId/Module/bottombar/device',(req, res) => {
+app.get('/:companyId/:productId/:projectId/Module/bottombar/device',(req, res) => {
   fs.readFile('./data/module/BottomBarDevice.json', (err, json) => {
     let obj = JSON.parse(json);
     res.json(obj);
   })
 })
 
-app.get('/:companyId/:projectId/Module/bottombar/sensor',(req, res) => {
+app.get('/:companyId/:productId/:projectId/Module/bottombar/sensor',(req, res) => {
   fs.readFile('./data/module/BottomBarSensor.json', (err, json) => {
     let obj = JSON.parse(json);
     res.json(obj);
   })
 })
 
-app.get('/:companyId/:projectId/Module/bottombar/system',(req, res) => {
+app.get('/:companyId/:productId/:projectId/Module/bottombar/system',(req, res) => {
   fs.readFile('./data/module/BottomBarSystem.json', (err, json) => {
     let obj = JSON.parse(json);
     res.json(obj);
