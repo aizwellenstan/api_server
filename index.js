@@ -8,14 +8,14 @@ const app = express()
 const path = require('path');
 const hbs = require('hbs');
 
-// const Pool = require('pg').Pool
-// const pool = new Pool({
-//   user: 'me',
-//   host: 'localhost',
-//   database: 'api',
-//   password: 'password',
-//   port: 5432,
-// })
+const Pool = require('pg').Pool
+const pool = new Pool({
+  user: 'me',
+  host: 'localhost',
+  database: 'api',
+  password: 'password',
+  port: 5432,
+})
 
 // const middlewares = require('./auth/middlewares');
 // const auth = require('./auth');
@@ -104,7 +104,7 @@ app.get('/:companyId/:projectId', function(req, res) {
 });
 
 //http://127.0.0.1:3000/companyId/projectId/projectinfo
-app.post('/:companyId/:projectId/projectinfo',(req, res) => {
+app.get('/:companyId/:projectId/projectinfo',(req, res) => {
   if(req.header('token')) {
     fs.readFile('./data/projectinfo/ProjectInfo.json', (err, json) => {
       let obj = JSON.parse(json);
@@ -116,7 +116,7 @@ app.post('/:companyId/:projectId/projectinfo',(req, res) => {
 })
 
 //http://127.0.0.1:3000/companyId/projectId/mainmodule
-app.post('/:companyId/:projectId/mainmodule',(req, res) => {
+app.get('/:companyId/:projectId/mainmodule',(req, res) => {
   if(req.header('token')) {
     fs.readFile('./data/mainmodule/MainModule.json', (err, json) => {
       let obj = JSON.parse(json);
@@ -128,7 +128,7 @@ app.post('/:companyId/:projectId/mainmodule',(req, res) => {
 })
 
 //http://127.0.0.1:3000/companyId/projectId/subfunction
-app.post('/:companyId/:projectId/subfunction',(req, res) => {
+app.get('/:companyId/:projectId/subfunction',(req, res) => {
   if(req.header('token')) {
     fs.readFile('./data/subfunction/SubFunction.json', (err, json) => {
       let obj = JSON.parse(json);
@@ -148,29 +148,29 @@ app.post('/:companyId/:projectId/subfunction',(req, res) => {
 app.get('/:companyId/:projectId/Module/bottombar/:module',(req, res) => {
   let barmodule = req.params.module
   let sql = "SELECT * FROM bottombar_" + barmodule
-  let query = conn.query(sql, (err, results) => {
+  let query = pool.query(sql, (err, results) => {
     if(err) throw err;
     res.json(results)
   });
 });
 
-app.post('/:companyId/:projectId/Module/bottombar/attribute/update',(req, res) => {
-  let sql = 
-  "UPDATE bottombar_attribute SET TypeName='" +
-  req.body.TypeName + 
-  "', TypeIcon='" + 
-  req.body.TypeIcon + 
-  "', Description='" + 
-  req.body.Description + 
-  "' WHERE id=" + 
-  req.body.id;
+// app.post('/:companyId/:projectId/Module/bottombar/attribute/update',(req, res) => {
+//   let sql = 
+//   "UPDATE bottombar_attribute SET TypeName='" +
+//   req.body.TypeName + 
+//   "', TypeIcon='" + 
+//   req.body.TypeIcon + 
+//   "', Description='" + 
+//   req.body.Description + 
+//   "' WHERE id=" + 
+//   req.body.id;
 
-  let query = conn.query(sql, (err, results) => {
-    if(err) throw err;
-    // res.redirect(`/${req.params.companyId}/${req.params.projectId}/Module/bottombar/system/web`);
-    res.send('success')
-  });
-});
+//   let query = conn.query(sql, (err, results) => {
+//     if(err) throw err;
+//     // res.redirect(`/${req.params.companyId}/${req.params.projectId}/Module/bottombar/system/web`);
+//     res.send('success')
+//   });
+// });
 //-----------------------end-------------------
 
 
