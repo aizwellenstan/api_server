@@ -65,7 +65,7 @@ app.get('/', (req, res) => {
 const token = "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIn0.n9zXFaD564WqPoPyjWH7vC74r6Kwyyk3-SQaF_VqvincofN4L4Lrl6DIcYy7lc-xuuLMr-V8v7DXwFIKHliopFPkwgf5DemB.dc_l0tfyIUjsUJsmhLdqJw.m7ZXXk1Gzw8ny9ov2XIMmCwqiP-VEK27FWpRBRJgvGkB2UiPDnGFT1TkBoEVHkvR-b09grq9_fHAIsuU6hoLDNM0yJiA4ZjdfuByxipOcr3oLfbQiVFO1zxTppVmW0DGCOxY1jRiD3EEx1jFH80PjQHtojIyJ_u3hnvGffkw3yH6GMXkZaztgQzVxr9y3DJb.anzTkQV28vC4wr3aW4qKWE02ohQCcAX2qzBbKIulH1s"
 
 app.post('/login', (req, res) => {
-  if(req.header('US')=='Siemens' && req.header('PS')=='Snadi123;') {
+  if(req.body.Username=='Siemens' && req.body.Password=='Snadi123;') {
     fs.readFile('./data/login/AccountInfoData.json', (err, json) => {
       let obj = JSON.parse(json);
       res.json(obj);
