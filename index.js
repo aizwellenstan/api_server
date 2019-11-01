@@ -8,14 +8,14 @@ const app = express()
 const path = require('path');
 const hbs = require('hbs');
 
-const Pool = require('pg').Pool
-const pool = new Pool({
-  user: 'me',
-  host: 'localhost',
-  database: 'api',
-  password: 'password',
-  port: 5432,
-})
+// const Pool = require('pg').Pool
+// const pool = new Pool({
+//   user: 'me',
+//   host: 'localhost',
+//   database: 'api',
+//   password: 'password',
+//   port: 5432,
+// })
 
 // const middlewares = require('./auth/middlewares');
 // const auth = require('./auth');
@@ -27,17 +27,17 @@ app.use(express.json());
 
 const port = 3000
 
-const conn = mysql.createConnection({
-    host: 'localhost',
-    user: 'nadi',
-    password: 'Nadi1234;',
-    database: 'ocms_test'
-});
+// const conn = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'nadi',
+//     password: 'Nadi1234;',
+//     database: 'ocms_test'
+// });
 
-conn.connect((err) =>{
-    if(err) throw err;
-    console.log('Mysql Connected...');
-});
+// conn.connect((err) =>{
+//     if(err) throw err;
+//     console.log('Mysql Connected...');
+// });
 
 app.use(cors());
 app.use(bodyParser.json())
@@ -206,62 +206,62 @@ app.get('/:companyId/:projectId/Module/bottombar/system',(req, res) => {
   })
 })
 
-//--------bottombar_attribute-----------
-app.get('/:companyId/:projectId/Module/bottombar/attribute/web',(req, res) => {
-  let sql = "SELECT * FROM bottombar_attribute";
-  let query = conn.query(sql, (err, results) => {
-    if(err) throw err;
-    res.render('bottombar_attribute_view',{
-      results: results
-    });
-  });
-});
+// //--------bottombar_attribute-----------
+// app.get('/:companyId/:projectId/Module/bottombar/attribute/web',(req, res) => {
+//   let sql = "SELECT * FROM bottombar_attribute";
+//   let query = conn.query(sql, (err, results) => {
+//     if(err) throw err;
+//     res.render('bottombar_attribute_view',{
+//       results: results
+//     });
+//   });
+// });
 
-app.get('/:companyId/:projectId/Module/bottombar/system/web',(req, res) => {
-    let sql = "SELECT * FROM bottombar_system";
-    let query = conn.query(sql, (err, results) => {
-      if(err) throw err;
-      res.render('product_view',{
-        results: results
-      });
-    });
-});
-
-// app.get('/:companyId/:projectId/Module/bottombar/system',(req, res) => {
+// app.get('/:companyId/:projectId/Module/bottombar/system/web',(req, res) => {
 //     let sql = "SELECT * FROM bottombar_system";
 //     let query = conn.query(sql, (err, results) => {
 //       if(err) throw err;
-//       res.json(results)
+//       res.render('product_view',{
+//         results: results
+//       });
+//     });
+// });
+
+// // app.get('/:companyId/:projectId/Module/bottombar/system',(req, res) => {
+// //     let sql = "SELECT * FROM bottombar_system";
+// //     let query = conn.query(sql, (err, results) => {
+// //       if(err) throw err;
+// //       res.json(results)
+// //     });
+// //   });
+  
+//   //route for insert data
+//   app.post('/:companyId/:projectId/Module/bottombar/system/save',(req, res) => {
+//     let data = {name: req.body.name, value: req.body.value};
+//     let sql = "INSERT INTO bottombar_system SET ?";
+//     let query = conn.query(sql, data,(err, results) => {
+//       if(err) throw err;
+//       res.redirect(`/${req.params.companyId}/${req.params.projectId}/Module/bottombar/system/web`);
 //     });
 //   });
   
-  //route for insert data
-  app.post('/:companyId/:projectId/Module/bottombar/system/save',(req, res) => {
-    let data = {name: req.body.name, value: req.body.value};
-    let sql = "INSERT INTO bottombar_system SET ?";
-    let query = conn.query(sql, data,(err, results) => {
-      if(err) throw err;
-      res.redirect(`/${req.params.companyId}/${req.params.projectId}/Module/bottombar/system/web`);
-    });
-  });
+//   //route for update data
+//   app.post('/:companyId/:projectId/Module/bottombar/system/update',(req, res) => {
+//     let sql = "UPDATE bottombar_system SET name='"+req.body.name+"', value='"+req.body.value+"' WHERE id="+req.body.id;
+//     let query = conn.query(sql, (err, results) => {
+//       if(err) throw err;
+//       res.redirect(`/${req.params.companyId}/${req.params.projectId}/Module/bottombar/system/web`);
+//     });
+//   });
   
-  //route for update data
-  app.post('/:companyId/:projectId/Module/bottombar/system/update',(req, res) => {
-    let sql = "UPDATE bottombar_system SET name='"+req.body.name+"', value='"+req.body.value+"' WHERE id="+req.body.id;
-    let query = conn.query(sql, (err, results) => {
-      if(err) throw err;
-      res.redirect(`/${req.params.companyId}/${req.params.projectId}/Module/bottombar/system/web`);
-    });
-  });
-  
-  //route for delete data
-  app.post('/:companyId/:projectId/Module/bottombar/system/delete',(req, res) => {
-    let sql = "DELETE FROM bottombar_system WHERE id="+req.body.id+"";
-    let query = conn.query(sql, (err, results) => {
-      if(err) throw err;
-        res.redirect(`/${req.params.companyId}/${req.params.projectId}/Module/bottombar/system/web`);
-    });
-  });
+//   //route for delete data
+//   app.post('/:companyId/:projectId/Module/bottombar/system/delete',(req, res) => {
+//     let sql = "DELETE FROM bottombar_system WHERE id="+req.body.id+"";
+//     let query = conn.query(sql, (err, results) => {
+//       if(err) throw err;
+//         res.redirect(`/${req.params.companyId}/${req.params.projectId}/Module/bottombar/system/web`);
+//     });
+//   });
 
 // app.use('/auth', auth);
 // app.use('/api/v1/notes', middlewares.isLoggedIn, notes);
