@@ -1,0 +1,70 @@
+[
+    {
+      "Sensor": {
+        "Id": "200",
+        "ParentId": "Build001",
+        "ObjectId": "camera0006",
+        "DisplayName": "網路攝影機6",
+        "ChartURL": "http://220.128.216.143:3000/d/DAZGc75Zk/siemens_demo_all_sensor?orgId=1&from=now-7d&to=now&fullscreen&panelId=2818",
+        "Descriptor": "網路攝影機6",
+        "Status": "",
+        "Thumbnail": "\\Images\\Device\\Q1755-E.png",
+        "HotdataInfo": [
+          {
+            "Key": "Unit",
+            "Language": " ",
+            "Value": "KW"
+          },
+          {
+            "Key": "name",
+            "Language": " ",
+            "Value": "power"
+          }
+        ],
+        "PointControllerInfo": [
+          {
+            "Key": "writelink",
+            "Language": " ",
+            "Value": "http://dasdsadsa/"
+          },
+          {
+            "Key": "name",
+            "Language": " ",
+            "Value": "power"
+          }
+        ],   
+        "Information": [
+          {
+            "Key": "",
+            "Language": " ",
+            "Value": ""
+          },
+          {
+            "Key": "設備名稱",
+            "Language": " ",
+            "Value": "Q1755/-E"
+          },
+          {
+            "Key": "廠牌",
+            "Language": " ",
+            "Value": "AXIS"
+          },
+          {
+            "Key": "影像感應器",
+            "Language": " ",
+            "Value": "1/3吋 主動式掃描CMOS 2百萬像素"
+          },
+          {
+            "Key": "工作電壓",
+            "Language": " ",
+            "Value": "8–20 V DC max. 11,2 W; 20 - 24 V AC max"
+          },
+          {
+            "Key": "運作環境",
+            "Language": " ",
+            "Value": "IPv4/v6, HTTP, HTTPS*, QoS Layer 3 DiffServ, FTP, SMTP, Bonjour, UPnP, SNMPv1/v2c/v3(MIB-II), DNS, DynDNS, NTP, RTSP, RTP, TCP, UDP, IGMP, RTCP, ICMP, DHCP, ARP, SOCKS. 並支援大多數的PT運鏡雲台"
+          }
+        ]
+      }
+    }
+  ]

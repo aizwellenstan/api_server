@@ -9,19 +9,38 @@ header
 ----------------------------------------------------
 
 //Project info
-URL https://product.nadi3docms.com/api/:companyId/:projectId/projectinfo
-URL example https://product.nadi3docms.com/api/companyId/projectId/projectinfo
+URL https://product.nadi3docms.com/api/:companyId/:productId/:projectId/projectinfo
+URL example https://product.nadi3docms.com/api/companyId/productId/projectId/projectinfo
 Method get
 
 header 
 'token' = token from /login
 
+----------------------------------------------------
+
+//Cold Data
+URL https://product.nadi3docms.com/api/:companyId/:productId/:projectId/colddata
+URL example https://product.nadi3docms.com/api/companyId/productId/projectId/colddata
+Method get
+
+header 
+'token' = token from /login
+
+----------------------------------------------------
+
+//Hot Data
+URL https://product.nadi3docms.com/api/:companyId/:productId/:projectId/hotdata
+URL example https://product.nadi3docms.com/api/companyId/productId/projectId/hotdata
+Method get
+
+header 
+'token' = token from /login
 
 ----------------------------------------------------
 
 //Main Module
-URL https://product.nadi3docms.com/api/:companyId/:projectId/mainmodule
-URL example https://product.nadi3docms.com/api/companyId/projectId/mainmodule
+URL https://product.nadi3docms.com/api/:companyId/:productId/:projectId/mainmodule
+URL example https://product.nadi3docms.com/api/companyId/productId/projectId/mainmodule
 Method get
 
 header 
@@ -30,8 +49,8 @@ header
 ----------------------------------------------------
 
 //Sub Function
-URL https://product.nadi3docms.com/api/:companyId/:projectId/subfunction
-URL example https://product.nadi3docms.com/api/companyId/projectId/subfunction
+URL https://product.nadi3docms.com/api/:companyId/:productId/:projectId/subfunction
+URL example https://product.nadi3docms.com/api/companyId/productId/projectId/subfunction
 Method get
 
 header 

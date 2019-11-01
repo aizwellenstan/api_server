@@ -89,8 +89,8 @@ app.get('/:companyId/:productId/:projectId/projectinfo',(req, res) => {
 
 app.get('/:companyId/:productId/:projectId/colddata', (req, res) => {
   if(req.header('token')) {
-    fs.readFile('./data/colddata/SensorColdData 2.json', (err, json) => {
-      let obj = JSON.parse(json);
+    fs.readFile('./data/colddata/SensorColdData.json',(err, json) => {
+      let obj = JSON.parse(json)
       res.json(obj);
     })
   } else {
