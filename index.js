@@ -62,20 +62,6 @@ app.get('/', (req, res) => {
     res.send('http://127.0.0.1:3000/companyId/projectId/Module/bottombar/attribute+http://127.0.0.1:3000/companyId/projectId/Module/bottombar/device+http://127.0.0.1:3000/companyId/projectId/Module/bottombar/sensor+http://127.0.0.1:3000/companyId/projectId/Module/bottombar/system');
 })
 
-app.get('/colddata', (req, res) => {
-    fs.readFile('./data/colddata/SensorColdData 2.json', (err, json) => {
-        let obj = JSON.parse(json);
-        res.json(obj);
-    })
-})
-
-app.get('/hotdata', (req, res) => {
-    fs.readFile('./data/hotdata/SensorHotData.json', (err, json) => {
-        let obj = JSON.parse(json);
-        res.json(obj);
-    })
-})
-
 const token = "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIn0.n9zXFaD564WqPoPyjWH7vC74r6Kwyyk3-SQaF_VqvincofN4L4Lrl6DIcYy7lc-xuuLMr-V8v7DXwFIKHliopFPkwgf5DemB.dc_l0tfyIUjsUJsmhLdqJw.m7ZXXk1Gzw8ny9ov2XIMmCwqiP-VEK27FWpRBRJgvGkB2UiPDnGFT1TkBoEVHkvR-b09grq9_fHAIsuU6hoLDNM0yJiA4ZjdfuByxipOcr3oLfbQiVFO1zxTppVmW0DGCOxY1jRiD3EEx1jFH80PjQHtojIyJ_u3hnvGffkw3yH6GMXkZaztgQzVxr9y3DJb.anzTkQV28vC4wr3aW4qKWE02ohQCcAX2qzBbKIulH1s"
 
 app.post('/login', (req, res) => {
@@ -89,6 +75,41 @@ app.post('/login', (req, res) => {
   }
 })
 
+//http://127.0.0.1:3000/companyId/productId/projectId/projectinfo
+app.get('/:companyId/:productId/:projectId/projectinfo',(req, res) => {
+  if(req.header('token')) {
+    fs.readFile('./data/projectinfo/ProjectInfo.json', (err, json) => {
+      let obj = JSON.parse(json);
+      res.json(obj);
+    })
+  } else {
+    res.json("token failed")
+  }
+})
+
+app.get('/:companyId/:productId/:projectId/colddata', (req, res) => {
+  if(req.header('token')) {
+    fs.readFile('./data/colddata/SensorColdData 2.json', (err, json) => {
+      let obj = JSON.parse(json);
+      res.json(obj);
+    })
+  } else {
+    res.json("token failed")
+  }
+  
+  
+})
+
+app.get('/:companyId/:productId/:projectId/hotdata', (req, res) => {
+  if(req.header('token')) {
+    fs.readFile('./data/hotdata/SensorHotData.json', (err, json) => {
+      let obj = JSON.parse(json);
+      res.json(obj);
+  })
+  } else {
+    res.json("token failed")
+  }
+})
 
 app.get('/:companyId/:productId/:projectId', function(req, res) {
     var data = {
@@ -102,18 +123,6 @@ app.get('/:companyId/:productId/:projectId', function(req, res) {
         res.json(obj);
     });
 });
-
-//http://127.0.0.1:3000/companyId/productId/projectId/projectinfo
-app.get('/:companyId/:productId/:projectId/projectinfo',(req, res) => {
-  if(req.header('token')) {
-    fs.readFile('./data/projectinfo/ProjectInfo.json', (err, json) => {
-      let obj = JSON.parse(json);
-      res.json(obj);
-    })
-  } else {
-    res.json("token failed")
-  }
-})
 
 //http://127.0.0.1:3000/companyId/productId/projectId/mainmodule
 app.get('/:companyId/:productId/:projectId/mainmodule',(req, res) => {
